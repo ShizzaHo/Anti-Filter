@@ -5,7 +5,11 @@ import methodSCRATCHED from './lib/methods/SCRATCHED';
 import methodSCRATCHEDEASY from './lib/methods/SCRATCHEDEASY';
 import noMethod from './lib/methods/noMethod';
 
-export async function GET(request: Request) {
+export interface NextjsRequest {
+    [key: string]: any;
+}
+
+export async function GET(request: NextjsRequest) {
     const searchParams = request.nextUrl.searchParams;
 
     switch (searchParams.get('method')) {
