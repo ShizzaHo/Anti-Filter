@@ -1,0 +1,200 @@
+.bg {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    overflow: hidden;
+}
+
+.main {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #fff;
+
+    & > p {
+        color: #fff;
+        text-align: center;
+        font-family: Cygre Medium;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: normal;
+        line-height: 200%;
+
+        animation: uiAnim ease-in-out forwards;
+
+        & > span {
+            color: #e70053;
+
+            animation: uiAnimSpec 3s ease-in-out infinite;
+        }
+    }
+}
+
+.bgText {
+    position: absolute;
+    margin: 0;
+    color: #fff;
+    font-family: Cygre ExtraBold;
+    font-size: 94px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    letter-spacing: 43.24px;
+    text-transform: uppercase;
+
+    opacity: 0.1;
+
+    transform: rotate(-12.134deg) scale(1.5);
+    animation: scrollLine 7s infinite linear;
+
+    user-select: none;
+}
+
+.bgText2 {
+    margin: 0;
+    color: #e70053;
+    font-family: Cygre ExtraBold;
+    font-size: 94px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    letter-spacing: 43.24px;
+    text-transform: uppercase;
+
+    opacity: 0.1;
+
+    transform: rotate(-12.134deg);
+    animation: scrollLine2 7s infinite linear;
+
+    user-select: none;
+}
+
+.bgText3 {
+    margin: 0;
+    color: #fff;
+    font-family: Cygre ExtraBold;
+    font-size: 94px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    text-transform: uppercase;
+
+    opacity: 0.1;
+
+    transform: rotate(-12.134deg);
+    animation: scrollLine3 7s infinite linear;
+
+    user-select: none;
+}
+
+.skip {
+    font-family: Cygre medium;
+
+    position: absolute;
+    bottom: 32px;
+    opacity: 0.3;
+    cursor: pointer;
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+
+    animation: uiAnim2 1s ease-in-out forwards;
+
+    & > span {
+        font-family: Cygre medium;
+        color: white;
+        font-size: 18px;
+        transition: all 400ms ease-in-out;
+        backface-visibility: hidden;
+
+        &:hover {
+            color: #e70053;
+            font-size: 22px;
+            font-family: Cygre ExtraBold;
+            margin: 20px 0px;
+
+            cursor: pointer;
+        }
+    }
+}
+
+@keyframes scrollLine {
+    0% {
+        transform: rotate(-12.134deg) scale(2) translateX(1500px) translateY(100px);
+    }
+    100% {
+        transform: rotate(-12.134deg) scale(2) translateX(-500px) translateY(100px);
+    }
+}
+
+@keyframes scrollLine2 {
+    0% {
+        transform: rotate(-12.134deg) scale(2) translateX(-200px) translateY(200px);
+    }
+    100% {
+        transform: rotate(-12.134deg) scale(2) translateX(1500px) translateY(200px);
+    }
+}
+
+@keyframes scrollLine3 {
+    0% {
+        transform: rotate(-12.134deg) scale(2) translateX(2000px) translateY(384px);
+    }
+    100% {
+        transform: rotate(-12.134deg) scale(2) translateX(-200px) translateY(384px);
+    }
+}
+
+@keyframes uiAnim {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    30% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    70% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+}
+
+@keyframes uiAnim2 {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes uiAnimSpec {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
