@@ -45,7 +45,7 @@
 
 .main {
     display: flex;
-    flex-direction: rpw;
+    flex-direction: row;
     height: 100%;
 }
 
@@ -102,4 +102,201 @@
 
 .noDifference {
     opacity: 0.3;
+}
+
+.modeSelect {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+
+    &__row {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    &__column {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+        height: 100%;
+
+        color: white;
+        cursor: pointer;
+        transition: all 400ms ease-in-out;
+
+        & > div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0px 40px;
+        }
+
+        &:hover {
+            background-color: #7c002e;
+            transform: scale(1.01);
+            border: 1px solid #fff;
+            z-index: 999;
+        }
+    }
+
+    &__title {
+        color: #fff;
+        text-align: center;
+        font-family: Cygre Black;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: normal;
+
+        margin: 0;
+    }
+
+    &__desc {
+        color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        font-family: Cygre Medium;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    &__simple {
+        color: #fff;
+        text-align: center;
+        font-family: Cygre Medium;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        margin-bottom: 10px;
+    }
+
+    &__rec {
+        color: #e70053;
+        text-align: center;
+        font-family: Cygre Medium;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    &__noRec {
+        color: #777;
+        text-align: center;
+        font-family: Cygre Medium;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    &__CAR {
+        border-right: 1px solid #fff;
+    }
+
+    &__SCRATCHED {
+        border-top: 1px solid #fff;
+        border-right: 1px solid #fff;
+        background: #000;
+    }
+
+    &__SCRATCHEDEASY {
+        border-top: 1px solid #fff;
+        background: #000;
+    }
+}
+
+@media (max-width: 480px) {
+    .mode {
+        font-size: 12px;
+    }
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .editor {
+        height: 100%;
+        width: 100%;
+
+        border-right: none;
+        border-bottom: 1px solid #3f3f3f;
+    }
+
+    .modeSelect {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        &__row {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        &__column {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+
+            height: 100%;
+
+            color: white;
+            cursor: pointer;
+            transition: all 400ms ease-in-out;
+
+            & > div {
+                transition: none !important;
+            }
+
+            &:hover {
+                background-color: black;
+                transform: scale(1);
+                border: none;
+                border-bottom: 1px solid #fff;
+                z-index: 999;
+            }
+        }
+
+        &__title {
+            font-size: 20px;
+        }
+
+        &__desc {
+            font-size: 13px;
+        }
+
+        &__simple {
+            font-size: 10px;
+            margin-bottom: 4px;
+        }
+
+        &__rec {
+            font-size: 10px;
+        }
+
+        &__noRec {
+            font-size: 10px;
+        }
+
+        &__CAR {
+            border-right: none;
+            border-bottom: 1px solid #fff;
+        }
+
+        &__SCRATCHED {
+            border-top: none;
+            border-right: none;
+            border-bottom: 1px solid #fff;
+        }
+
+        &__SCRATCHEDEASY {
+            border-top: none;
+        }
+    }
 }
