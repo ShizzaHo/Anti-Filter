@@ -13,7 +13,7 @@ export default function App() {
     );
 
     const [unfilteredMode, setUnfilteredMode] = useState('CAR');
-    const [isModeSelect, setIsModeSelect] = useState(true);
+    const [isModeSelect, setIsModeSelect] = useState(false);
     const [filteredText, setFilteredText] = useState('');
     const [unfilteredText, setUnfilteredText] = useState('');
     const [differenceArray, setDifferenceArray] = useState<
