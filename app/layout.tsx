@@ -7,12 +7,6 @@ import { useEffect } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const metadata: Metadata = {
-    title: 'АНТИ ФИЛЬТР',
-    description:
-        'Ваше мнение и эмоции, не должны быть ограничены политикой и бесчеловечными корпорациями',
-};
-
 export default function RootLayout({
     children,
 }: {
