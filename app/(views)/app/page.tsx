@@ -213,9 +213,7 @@ export default function App() {
                     <div className={styles.modeSelect__row}>
                         <div
                             className={
-                                styles.modeSelect__column +
-                                ' ' +
-                                styles.modeSelect__CAR
+                                styles.modeSelect__column
                             }
                             onClick={()=>{handlers.selectMode("UGLY")}}
                         >

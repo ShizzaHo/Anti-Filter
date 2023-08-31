@@ -80,6 +80,8 @@
     color: white;
     border-top: 1px solid #3f3f3f;
     padding: 10px;
+    white-space: pre-line;
+    overflow: auto;
 }
 
 .textarea {
@@ -286,7 +288,8 @@
         }
 
         &__desc {
-            font-size: 13px;
+            font-size: 12px;
+            margin: 0;
         }
 
         &__simple {
