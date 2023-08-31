@@ -30,6 +30,15 @@ export default function App() {
         }
     };
 
+    const callbacks = {
+        about: (e: any) => {
+            window.open("https://github.com/ShizzaHo/Anti-Filter", '_blank');
+        },
+        openAuthor: (e: any) => {
+            window.open("https://github.com/ShizzaHo", '_blank');
+        },
+    };
+
     const selectMode = () => {
         setIsModeSelect(true);
     }
@@ -77,9 +86,9 @@ export default function App() {
     return (
         <div className={styles.app}>
             <header className={styles.header}>
-                <span>О проекте</span>
+                <span onClick={callbacks.about}>О проекте</span>
                 <img src={logo.src}></img>
-                <span>Автор</span>
+                <span onClick={callbacks.openAuthor}>Автор</span>
             </header>
             <div className={styles.mode}>
                 {isModeSelect ? (

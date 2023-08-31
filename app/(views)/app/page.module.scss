@@ -11,7 +11,7 @@
 .header {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     height: 60px;
     background: #e70053;
@@ -20,11 +20,19 @@
 
     & > img {
         height: 60px;
+        margin-right: 35px;
     }
 
-    & > span {
+    & > span:nth-child(1) {
         text-decoration: underline;
         cursor: pointer;
+        margin-right: auto;
+    }
+
+    & > span:nth-child(3) {
+        text-decoration: underline;
+        cursor: pointer;
+        margin-left: auto;
     }
 }
 
@@ -209,6 +217,16 @@
 }
 
 @media (max-width: 480px) {
+    .app {
+        background-color: black;
+        overflow: hidden;
+        height: 100dvh;
+        width: 100vw;
+    
+        display: flex;
+        flex-direction: column;
+    }
+
     .mode {
         font-size: 12px;
     }
