@@ -8,34 +8,6 @@
     flex-direction: column;
 }
 
-.header {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 60px;
-    background: #e70053;
-    color: white;
-    padding: 0px 10px;
-
-    & > img {
-        height: 60px;
-        margin-right: 35px;
-    }
-
-    & > span:nth-child(1) {
-        text-decoration: underline;
-        cursor: pointer;
-        margin-right: auto;
-    }
-
-    & > span:nth-child(3) {
-        text-decoration: underline;
-        cursor: pointer;
-        margin-left: auto;
-    }
-}
-
 .mode {
     display: flex;
     justify-content: center;
@@ -82,28 +54,6 @@
     padding: 10px;
     white-space: pre-line;
     overflow: auto;
-}
-
-.textarea {
-    height: 100%;
-    width: 100%;
-    background-color: transparent;
-    border: none;
-    outline: none;
-
-    color: #fff;
-    font-family: Cygre Medium;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-
-    padding: 10px;
-    resize: none;
-
-    &::selection {
-        background: #e70053;
-    }
 }
 
 .difference {

@@ -1,0 +1,27 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    background: #e70053;
+    color: white;
+    padding: 0px 10px;
+
+    & > img {
+        height: 60px;
+        margin-right: 35px;
+    }
+
+    & > span:nth-child(1) {
+        text-decoration: underline;
+        cursor: pointer;
+        margin-right: auto;
+    }
+
+    & > span:nth-child(3) {
+        text-decoration: underline;
+        cursor: pointer;
+        margin-left: auto;
+    }
+}

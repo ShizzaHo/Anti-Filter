@@ -1,34 +1,76 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Этот проект [Next.js](https://nextjs.org/) создан с помощью [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## О проекте
 
-First, run the development server:
+Анти цензура это проект который призван покончить с адской и порой неуместной цензурой "ненормативной" лексики в русскоязычном интернете.
+
+```
+А русский мат наш дорогой,
+Употребляйте осторожно.
+Конечно, мат не хорошо,
+Но и без мата невозможно.
+```
+
+## Режимы работы
+
+| Название режима  | Описание                                                                                                                                                                                                                                            | Техническое название |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| Замена кириллицы | Самый красивый по восприятию режим, который меняет символы из кириллицы на аналогичные символы из латиницы, а также заменяет некоторые буквы на символы, это к сожалению бывает заметно на разных шрифтах, но все равно это остается лучшим режимом | CAR                  |
+| Уродливый        | Самый отвратительный по восприятию режим, который меняет символы из кириллицы на отдаленно похожие по образу символы, это до ужаса заметно, противно и неудобно для восприятия, именно такой режим любят использовать безмозглые тиктокершы         | UGLY                 |
+| Поцарапанный     | В целом достаточно читаемый и условно приятный для восприятия режим, однако работать он будет не везде, используемые вами сервисы могут удалять подобные Zalgo-подобные юникод символы, или же просто игнорировать их для проверки на цензуру       | SCRATCHED            |
+| Легкая царапка   | Тоже самое что и режим “Поцарапанный”, однако заменяются не все символы, от чего возрастает приятность восприятия. Рекомендуется использовать именно этот режим вместо “Поцарапанный”, тот скорее как тяжелая артиллерия :]                         | SCRATCHEDEASY        |
+
+## Запуск проекта
+
+Сначала запустите сервер разработки:
 
 ```bash
 npm run dev
-# or
+# или
 yarn dev
-# or
+# или
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Откройте [http://localhost:3000](http://localhost:3000) в браузере, чтобы увидеть результат.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Начать редактирование страницы можно, изменив файл `app/page.tsx`. Страница будет автоматически обновляться по мере редактирования файла.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## API Проекта
 
-## Learn More
+Вы можете интегрировать АНТИ ЦЕНЗУРУ в свой проект, для этого достаточно отправлять HTTP запрос к API проекта
 
-To learn more about Next.js, take a look at the following resources:
+`https://anti-filter.vercel.app/api/` - url адрес для обращения к api методам
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### /api/unfiltered/ - Форматирование текста для обхода цензуры
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Этот API метод позволяет отформатировать текст в текст который цензура скорее всего пропустит.
 
-## Deploy on Vercel
+Пример запроса: http://localhost:3000/api/unfiltered?method=CAR&text=Хули%20ты%20это%20читаешь
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Метод имеет 2 параметра, а также не требует никаких header параметров
+
+-   **method** - Метод для форматирования текста, сюда нужно вводить техническое название из таблицы режимов выше (например: **CAR**)
+
+-   **text** - Текст который будет отформатирован
+
+Запрос вернет вам JSON ответ, в случае успеха вам будет возвращен ответ со статусом 200
+
+```json
+{
+    "result": {
+        "formatted": "Haxyй ты этo читaeшь?"
+    }
+}
+```
+
+А в случае ошибки будет возвращен статус 400, вот возможный пример JSON ответа при ошибке:
+
+```json
+{ 
+    "error": { 
+        "message": "Неправильно указан режим обхода фильтра" 
+    } 
+}
+```

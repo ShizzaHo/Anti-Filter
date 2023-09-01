@@ -2,10 +2,10 @@
 
 import styles from './page.module.scss';
 import { useEffect, useState } from 'react';
-import logo from '../../../public/logo.svg';
-import { clearTimeout } from 'timers';
 import generateDifferenceArray from '@/app/lib/generateDifferenceArray';
 import generateRandomID from '@/app/lib/randomID';
+import Header from '@/app/components/header';
+import Textarea from '@/app/components/textarea';
 
 export default function App() {
     const [requestWaiter, setRequestWaiter] = useState(
@@ -27,40 +27,40 @@ export default function App() {
         selectMode: (mode: string) => {
             setUnfilteredMode(mode);
             setIsModeSelect(false);
-        }
+        },
     };
 
     const callbacks = {
         about: (e: any) => {
-            window.open("https://github.com/ShizzaHo/Anti-Filter", '_blank');
+            window.open('https://github.com/ShizzaHo/Anti-Filter', '_blank');
         },
         openAuthor: (e: any) => {
-            window.open("https://github.com/ShizzaHo", '_blank');
+            window.open('https://github.com/ShizzaHo', '_blank');
         },
     };
 
     const selectMode = () => {
         setIsModeSelect(true);
-    }
+    };
 
     const getModeName = () => {
         switch (unfilteredMode) {
-            case "CAR":
-                return "Замена кириллицы"
+            case 'CAR':
+                return 'Замена кириллицы';
                 break;
-            case "UGLY":
-                return "Уродливый"
+            case 'UGLY':
+                return 'Уродливый';
                 break;
-            case "SCRATCHED":
-                return "Поцарапанный"
+            case 'SCRATCHED':
+                return 'Поцарапанный';
                 break;
-            case "SCRATCHEDEASY":
-                return "Легкая царапка"
+            case 'SCRATCHEDEASY':
+                return 'Легкая царапка';
                 break;
             default:
                 break;
         }
-    }
+    };
 
     useEffect(() => {
         window.clearTimeout(requestWaiter);
@@ -85,11 +85,7 @@ export default function App() {
 
     return (
         <div className={styles.app}>
-            <header className={styles.header}>
-                <span onClick={callbacks.about}>О проекте</span>
-                <img src={logo.src}></img>
-                <span onClick={callbacks.openAuthor}>Автор</span>
-            </header>
+            <Header callbacks={callbacks}></Header>
             <div className={styles.mode}>
                 {isModeSelect ? (
                     <>Выбор режима</>
@@ -103,21 +99,19 @@ export default function App() {
             {isModeSelect == false ? (
                 <main className={styles.main}>
                     <div className={styles.editor}>
-                        <textarea
-                            className={styles.textarea}
+                        <Textarea
                             placeholder='Введите здесь текст который нужно отформатироать'
                             value={filteredText}
                             onChange={handlers.changeUnfilteredText}
-                        ></textarea>
+                        ></Textarea>
                     </div>
                     <div className={styles.resultContainer}>
                         <div className={styles.result}>
-                            <textarea
-                                className={styles.textarea}
+                            <Textarea
                                 readOnly
                                 placeholder='Здесь автоматически появится уже отформатированный текст'
                                 value={unfilteredText}
-                            ></textarea>
+                            ></Textarea>
                         </div>
                         <div className={styles.variance}>
                             {differenceArray.length == 0 ? (
@@ -152,7 +146,9 @@ export default function App() {
                                 ' ' +
                                 styles.modeSelect__CAR
                             }
-                            onClick={()=>{handlers.selectMode("CAR")}}
+                            onClick={() => {
+                                handlers.selectMode('CAR');
+                            }}
                         >
                             <div>
                                 <h1 className={styles.modeSelect__title}>
@@ -184,7 +180,9 @@ export default function App() {
                                 ' ' +
                                 styles.modeSelect__SCRATCHED
                             }
-                            onClick={()=>{handlers.selectMode("SCRATCHED")}}
+                            onClick={() => {
+                                handlers.selectMode('SCRATCHED');
+                            }}
                         >
                             <div>
                                 <h1 className={styles.modeSelect__title}>
@@ -212,10 +210,10 @@ export default function App() {
                     </div>
                     <div className={styles.modeSelect__row}>
                         <div
-                            className={
-                                styles.modeSelect__column
-                            }
-                            onClick={()=>{handlers.selectMode("UGLY")}}
+                            className={styles.modeSelect__column}
+                            onClick={() => {
+                                handlers.selectMode('UGLY');
+                            }}
                         >
                             <div>
                                 <h1 className={styles.modeSelect__title}>
@@ -247,7 +245,9 @@ export default function App() {
                                 ' ' +
                                 styles.modeSelect__SCRATCHEDEASY
                             }
-                            onClick={()=>{handlers.selectMode("SCRATCHEDEASY")}}
+                            onClick={() => {
+                                handlers.selectMode('SCRATCHEDEASY');
+                            }}
                         >
                             <div>
                                 <h1 className={styles.modeSelect__title}>
@@ -264,7 +264,8 @@ export default function App() {
                             </div>
                             <div>
                                 <span className={styles.modeSelect__simple}>
-                                Пример отформатированного текста: Х̷у̷ли ты это̷ чита̷е̷шь?
+                                    Пример отформатированного текста: Х̷у̷ли ты
+                                    это̷ чита̷е̷шь?
                                 </span>
                                 <span className={styles.modeSelect__noRec}>
                                     Работает не везде, не рекомендуется
